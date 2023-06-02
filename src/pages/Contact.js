@@ -1,15 +1,20 @@
-import React from "react";
+import { useContext } from "react";
 import WomanImg from "../img/contact/woman.png";
 import { motion } from "framer-motion";
 import { transition1 } from "../transitions";
+import { CursorContext } from "../context/CursorContext";
 
 const Contact = () => {
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "100%" }}
       transition={transition1}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
       className="section bg-white"
     >
       <div className="container mx-auto h-full">

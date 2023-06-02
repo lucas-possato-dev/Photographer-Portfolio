@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import { transition1 } from "../transitions";
 
@@ -8,14 +8,18 @@ import Image3 from "../img/portfolio/3.png";
 import Image4 from "../img/portfolio/4.png";
 
 import { Link } from "react-router-dom";
+import { CursorContext } from "../context/CursorContext";
 
 const Portfolio = () => {
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "100%" }}
       transition={transition1}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
       className="section "
     >
       <div className="container mx-auto h-full relative">
